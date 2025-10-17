@@ -1,0 +1,564 @@
+/* =========================================
+   🌈 BASE STYLE
+========================================= */
+
+:root {
+  --bg1: linear-gradient(180deg, #9bd3ff 0%, #9bd3ff 20%, #e8f2ff 100%);
+  --card: #ffffff;
+  --accent: #40c4ff;
+  --muted: #6b7f8f;
+  --glass: rgba(255, 255, 255, 0.7);
+  --shadow: 0 14px 30px rgba(6, 21, 44, 0.12);
+  --radius: 16px;
+  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body.bg-blue {
+  min-height: 100vh;
+  margin: 0;
+  background: radial-gradient(circle at 10% 10%, rgba(255, 255, 255, 0.06) 0, #9bd3ff 2%, transparent 2%),
+              radial-gradient(circle at 90% 80%, rgba(255, 255, 255, 0.04) 0, #9bd3ff 2%, transparent 2%),
+              linear-gradient(180deg, #c7e8ff 0%, #9bdff8 40%, #9cc7ff 100%);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #04293a;
+  
+}
+
+/* =========================================
+   🏠 LAYOUT & TYPOGRAPHY
+========================================= */
+
+.stage {
+  max-width: 1100px;
+  margin: 48px auto;
+  padding: 28px;
+}
+
+.hero {
+  text-align: center;
+  padding: 18px 12px;
+  margin-bottom: 18px;
+}
+
+.hero h1 {
+  font-family: 'Chewy', cursive;
+  font-size: 50px;
+  margin: 8px 0;
+  color: #072b3b;
+  letter-spacing: 0.5px;
+  -webkit-text-stroke: 2px transparent; /* Stroke transparan */
+         text-shadow: 
+             2px 0 0 #4ecdc4,  /* Atas */
+             -2px 0 0 #ff6b6b, /* Bawah */
+             0 2px 0 #45b7d1,  /* Kanan */
+             0 -2px 0 #f9ca24; /* Kiri */
+}
+
+.hero.small h1 {
+  font-size: 32px;
+}
+
+.subtitle {
+  color: rgba(4, 41, 58, 0.7);
+  font-weight: 600;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+/* =========================================
+   🎁 GIFT BOX ANIMATION
+========================================= */
+
+.gift {
+  width: 220px;
+  height: 180px;
+  position: relative;
+  transform-origin: center;
+  cursor: pointer;
+  transition: transform 0.4s ease;
+  filter: drop-shadow(0 18px 30px rgba(4, 31, 50, 0.18));
+}
+
+.gift:hover {
+  transform: translateY(-8px) scale(1.03);
+}
+
+.gift .box {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 120px;
+  margin: auto;
+  width: 220px;
+  background: linear-gradient(180deg, #3db6ff, #02a6ff);
+  border-radius: 16px 16px 10px 10px;
+  box-shadow: 0 6px 0 rgba(0, 0, 0, 0.06) inset;
+}
+
+.gift img{
+    position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 220px;
+}
+
+/* =========================================
+   🔘 BUTTONS
+========================================= */
+
+.ghost {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: #04293a;
+  font-weight: 700;
+  padding: 10px 18px;
+  border-radius: 999px;
+  box-shadow: 0 6px 18px rgba(6, 21, 44, 0.06);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.ghost:active {
+  transform: scale(.98);
+}
+
+/* =========================================
+   📦 GRID TIGA KOTAK HADIAH
+========================================= */
+
+.grid-three {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 28px 6px;
+}
+
+@media (max-width: 860px) {
+  .grid-three {
+    grid-template-columns: 1fr;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  .stage {
+    padding: 22px;
+  }
+}
+
+.card {
+  display: block;
+  text-decoration: none;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: #ff028d;
+  font-style: italic;
+  transform: translateY(0);
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+
+.card-inner {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.95));
+  padding: 28px;
+  border-radius: 18px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.card .icon {
+  height: 78px;
+  margin-bottom: 12px;
+}
+
+/* =========================================
+   🖼 ICON STYLE UNTUK SETIAP KOTAK
+========================================= */
+
+.icon.polaroid {
+  width: 78px;
+  height: 78px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 8px 18px rgba(2, 20, 36, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: #90b7ff;
+}
+.icon.polaroid img{
+    width: 78px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+  justify-content: center;
+}
+
+.icon.music {
+  width: 78px;
+  height: 78px;
+  margin: 0 auto;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #e8f9ff, #c7f0ff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: #036;
+}
+.icon.music img{
+    width: 78px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+  justify-content: center;
+}
+
+.icon.letter {
+  width: 78px;
+  height: 78px;
+  margin: 0 auto;
+  border-radius: 8px;
+  background: linear-gradient(180deg, #fff3ea, #ffeae6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ff7b6b;
+}
+.icon.letter img{
+    width: 78px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+  justify-content: center;
+}
+
+/* =========================================
+   📸 SCRAPBOOK (POLAROID STYLE)
+========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #b5d8ff, #e2ecff);
+  font-family: 'Poppins', sans-serif;
+  color: #00334e;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.title {
+  font-size: 2em;
+  font-weight: 600;
+  margin-bottom: 0.2em;
+}
+
+.subtitle {
+  font-size: 1em;
+  color: #2c5979;
+  margin-bottom: 40px;
+}
+
+.film-wrapper {
+  width: 80%;
+  overflow: hidden;
+  position: relative;
+  mask-image: linear-gradient(to right, transparent 0%, #000 15%, #000 85%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 15%, #000 85%, transparent 100%);
+}
+
+.film-track {
+  display: flex;
+  gap: 60px;
+  align-items: center;
+  transition: transform 0.2s linear;
+}
+
+.frame {
+  flex: 0 0 280px;
+  height: 200px;
+  background: #fdfdfd;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.frame img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.frame p {
+  font-size: 0.9em;
+  color: #3e5e7c;
+  margin: 8px;
+}
+
+
+/* =========================================
+   🎵 HALAMAN MUSIK
+========================================= */
+
+.music-card {
+  background: linear-gradient(180deg, #ffffffcc, #ffffff);
+  padding: 28px;
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.music-card .btn {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 12px 20px;
+  background: linear-gradient(90deg, #02a6ff, #00d4ff);
+  color: white;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 700;
+  box-shadow: 0 10px 30px rgba(2, 160, 255, 0.18);
+}
+
+/* =========================================
+   💌 HALAMAN SURAT
+========================================= */
+
+.letter-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.envelope {
+  width: 220px;
+  height: 140px;
+  background: linear-gradient(180deg, #ffffff, #f6fbff);
+  border-radius: 14px;
+  position: relative;
+  box-shadow: var(--shadow);
+}
+.link{
+ display: inline-block;
+  margin-top: 70px;
+  padding: 13px 20px;
+  background: linear-gradient(90deg, #02a6ff, #00d4ff);
+  color: white;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 700;
+  box-shadow: 0 10px 30px rgba(2, 160, 255, 0.18);
+}
+
+.envelope .seal {
+  position: absolute;
+  right: 18px;
+  top: 18px;
+  width: 38px;
+  height: 38px;
+  background: linear-gradient(90deg, #ffb7d5, #ff9ac7);
+  border-radius: 999px;
+  box-shadow: 0 6px 18px rgba(255, 60, 120, 0.12);
+}
+
+.paper {
+  width: 360px;
+  min-height: 220px;
+  background: linear-gradient(180deg, #fff, #fffefc);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(2, 20, 36, 0.06);
+  border: 1px solid rgba(3, 40, 60, 0.04);
+}
+
+.paper h2 {
+  margin: 6px 0 8px 0;
+  font-size: 20px;
+}
+
+.paper p {
+  color: #234;
+  line-height: 1.6;
+}
+
+.muted {
+  color: var(--muted);
+  font-size: 13px;
+}
+#typewriter{
+  font-style: italic;
+}
+/* =========================================
+   📜 NAVIGATION & FOOTER
+========================================= */
+
+.row {
+  display: flex;
+  justify-content: center;
+  margin-top: 18px;
+}
+
+.back {
+  color: #044;
+  color: inherit;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.note {
+  margin-top: 26px;
+  text-align: center;
+  color: rgba(4, 41, 58, 0.55);
+}
+
+/* =========================================
+   📱 RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 520px) {
+
+  .paper {
+    width: 92%;
+  }
+
+  .polaroid {
+    width: 86%;
+  }
+
+  .gift {
+    width: 170px;
+    height: 140px;
+  }
+
+  .gift .box {
+    width: 170px;
+    height: 108px;
+  }
+}
+
+
+/* rollpicture section */
+/* rollpicture section */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #b5d8ff, #e2ecff);
+  font-family: 'Poppins', sans-serif;
+  color: #00334e;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh; /* ganti dari height ke min-height */
+  overflow-x: hidden; /* biar ga scroll horizontal */
+}
+
+.film-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 0; /* kasih napas biar font ga kepotong */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+.title {
+  font-family: 'Chewy', cursive;
+  font-size: 50px;
+  color: #072b3b;
+  letter-spacing: 0.5px;
+  -webkit-text-stroke: 2px transparent; /* Stroke transparan */
+         text-shadow: 
+             2px 0 0 #4ecdc4,  /* Atas */
+             -2px 0 0 #ff6b6b, /* Bawah */
+             0 2px 0 #45b7d1,  /* Kanan */
+             0 -2px 0 #f9ca24; /* Kiri */
+}
+
+.subtitle {
+  font-size: 1em;
+  color: #2c5979;
+  margin-bottom: 40px;
+}
+
+.film-wrapper {
+  width: 80%;
+  overflow: hidden;
+  position: relative;
+  mask-image: linear-gradient(to right, transparent 0%, #000 15%, #000 85%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 15%, #000 85%, transparent 100%);
+}
+
+.film-track {
+  display: flex;
+  gap: 60px;
+  align-items: center;
+  transition: transform 0.2s linear;
+}
+
+.frame {
+  flex: 0 0 280px;
+  height: 200px;
+  background: #fdfdfd;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.frame img {
+.film-track .poss-top img {
+  width: 200px; /* atau sesuaikan dengan frame lain */
+  height: 150px; /* bisa pakai auto juga */
+  object-fit: cover; 
+}
+}
+
+.frame p {
+  font-size: 0.9em;
+  color: #3e5e7c;
+  margin: 8px;
+}
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
